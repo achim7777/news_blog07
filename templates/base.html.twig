@@ -22,20 +22,23 @@
         <!-- Template Stylesheet -->
         <link href=" {{ asset('_assets/css/style.css') }} " rel="stylesheet">
 
-        {% block stylesheets %}{% endblock %}
-
-        {% block javascripts %}{% endblock %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
     </head>
     <body>
         
             <div class="main-news">
+                {% block navbar %}
                     {% include 'layout/partials/header.html.twig' %}
-                    {% include 'layout/partials/navbar.html.twig' %} 
-
+                {% endblock %}
                     {% block body %}{% endblock %}
-
-                    {% include 'layout/partials/footer.html.twig' %}   
-
+                {% block footer %}
+                    {% include 'layout/partials/footer.html.twig' %}
+                {% endblock %}        
             </div>
 
             <!-- JavaScript Libraries -->
