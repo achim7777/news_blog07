@@ -2,16 +2,49 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+        <title>{% block title %}News{% endblock %}</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Bootstrap News Template - Free HTML Templates" name="keywords">
+        <meta content="Bootstrap News Template - Free HTML Templates" name="description">
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
+        <!-- Favicon -->
+        <link href=" {{ asset('_assets/img/favicon.ico') }} " rel="icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet"> 
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href=" {{ asset('_assets/lib/slick/slick.css') }} " rel="stylesheet">
+        <link href=" {{ asset('_assets/lib/slick/slick-theme.css') }} " rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href=" {{ asset('_assets/css/style.css') }} " rel="stylesheet">
+
+        {% block stylesheets %}{% endblock %}
+
+        {% block javascripts %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        
+            <div class="main-news">
+                    {% include 'layout/partials/header.html.twig' %}
+                    {% include 'layout/partials/navbar.html.twig' %} 
+
+                    {% block body %}{% endblock %}
+
+                    {% include 'layout/partials/footer.html.twig' %}   
+
+            </div>
+
+            <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src=" {{ asset('_assets/lib/easing/easing.min.js') }} "></script>
+        <script src=" {{ asset('_assets/lib/slick/slick.min.js') }} "></script>
+
+        <!-- Template Javascript -->
+        <script src=" {{asset('_assets/js/main.js')}} "></script>
     </body>
 </html>
